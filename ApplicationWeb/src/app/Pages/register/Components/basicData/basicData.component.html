@@ -1,0 +1,151 @@
+<div class="componentInformation">
+  <form [formGroup]="form"  class="dsc-form">
+    <fieldset class="p-fieldset">
+      <legend>Datos Básicos</legend>
+
+      <div class="field grid">
+        <label for="fullName" class="col-2 justify-content-end">
+          Nombres
+          <span class="required-field">*</span>
+        </label>
+        <div class="col-8">
+          <input
+            type="text"
+            pInputText
+            formControlName="fullName"
+            placeholder="Digita primer y segundo nombre"
+          />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="firstSurname" class="col-2 justify-content-end">
+          Primer Apellido
+          <span class="required-field">*</span>
+        </label>
+        <div class="col-8">
+          <input
+            type="text"
+            pInputText
+            formControlName="firstSurname"
+            placeholder="Digita Primer apellido"
+          />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="secondSurname" class="col-2 justify-content-end">
+          Segundo Apellido
+        </label>
+        <div class="col-8">
+          <input
+            type="text"
+            pInputText
+            formControlName="secondSurname"
+            placeholder="Digita segundo apellido"
+          />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="identification" class="col-2 justify-content-end">
+          Identificación
+        </label>
+        <div class="col-8">
+          <input
+            type="text"
+            pInputText
+            formControlName="identification"
+            placeholder="Digita numero de identificación"
+            class="ng-dirty ng-invalid"
+          />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="gender" class="col-2 justify-content-end">
+          Género
+          <span class="required-field">*</span>
+        </label>
+        <div class="col-8 align-items-center">
+          <div class="checkBox">
+            <div style="display: flex; align-items: center;">
+              <input
+                type="radio"
+                id="masculino"
+                formControlName="gender"
+                value="1"
+              />
+              <label for="masculino">Masculino</label>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input
+                type="radio"
+                id="femenino"
+                formControlName="gender"
+                value="2"
+              />
+              <label for="femenino">Femenino</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="yearOfBirth" class="col-2 justify-content-end">
+          Año de nacimiento
+          <span class="required-field">*</span>
+        </label>
+        <div class="col-8">
+          <p-calendar formControlName="yearOfBirth" dateFormat="mm/dd/yy"></p-calendar>
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="deceased" class="col-2 justify-content-end">
+          Fallecido
+          <span class="required-field">*</span>
+        </label>
+        <div class="col-8 align-items-center">
+          <div class="checkBox">
+            <div style="display: flex; align-items: center;">
+              <input
+                type="radio"
+                id="si"
+                formControlName="deceased"
+                [value]="true"
+              />
+              <label for="si">Sí</label>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input
+                type="radio"
+                id="no"
+                formControlName="deceased"
+                [value]="false"
+              />
+              <label for="no">No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="identification" class="col-2 justify-content-end">
+          Descrición
+          <span class="required-field">*</span>
+        </label>
+        <div class="col-8">
+          <textarea 
+          rows="4"
+          cols="50" 
+          pInputTextarea 
+          formControlName="description"
+          placeholder="Este dato es muy importante, por favor escriba una descripción detallada de la persona, ejemplo: nombre de sus padres, hijos, apodo, sera usada para comparar con otra persona que tenga el mismo nombre"
+          [autoResize]="false">
+      </textarea>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

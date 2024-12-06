@@ -1,0 +1,29 @@
+<div class="flex justify-content-center">
+  <p-card class="custom-card flex flex-column">
+    <ng-template pTemplate="header">
+      <h2 class="text-center">Registro de Persona</h2>
+    </ng-template>
+
+    <ng-template pTemplate="content" class="flex-grow-1 d-flex flex-column justify-content-center my-content">
+      <p-steps [(activeIndex)]="activeIndex" [model]="items" styleClass="mb-4"></p-steps>
+      <ng-container [ngSwitch]="activeIndex">
+        <app-information [hidden]="activeIndex != 0"></app-information>
+        <app-basic-data #basicDataComponent [hidden]="activeIndex != 1"
+          (formValidChange)="disabledNextButton($event)"
+          (deceasedChange)="filterItemList($event)"
+          ></app-basic-data>
+        <app-nacionalityStep #nacionalityStepComponent [hidden]="activeIndex != 2"
+          (formValidChange)="disabledNextButton($event)"></app-nacionalityStep>
+        <app-informationDeath  #informationDeathComponent [hidden]="activeIndex != 3"
+          (formValidChange)="disabledNextButton($event)"></app-informationDeath>
+      </ng-container>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton label="Anterior" icon="pi pi-arrow-left" (click)="prevStep()" *ngIf="activeIndex > 0"></button>
+      <button pButton label="Siguiente" icon="pi pi-arrow-right" [disabled]="disableButton" (click)="nextStep()"
+        *ngIf="activeIndex < items.length - 1"></button>
+      <button pButton label="Guardar" icon="pi pi-save" *ngIf="showButtonSave" (click)="SaveRegisterAsync()"></button>
+    </ng-template>
+  </p-card>
+</div>

@@ -1,0 +1,23 @@
+<div class="relationship-container">
+  <div class="layout-wrapper">
+
+    <div class="main-container">
+      <div class="sidebar p-col-12 p-md-3">
+        <app-searchPeople [label]="label"  #searchPeopleP></app-searchPeople>
+      </div>
+
+      <div class="content">
+        <div class="card flex justify-content-center">
+          <p-confirmPopup />
+          <div class="graph-container" #graphContainer ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog [modal]="true" [(visible)]="visible">
+  @if (visible) { 
+    <app-informationPerson [personId]="nodoKeySelected"></app-informationPerson>
+  }
+</p-dialog>

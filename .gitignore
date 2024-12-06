@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/ApplicationWeb/.vscode
+/Server/Migrations
+/Server/BD

@@ -1,0 +1,37 @@
+.header {
+    height: 40px;
+    background-color: #6f42c1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    border-bottom: 1px solid #f8fafc;
+
+    .labels {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .name-label {
+            margin-left: 1rem;
+            color: #ffffff;
+        }
+    }
+
+    .icons {
+        display: flex;
+        justify-content: space-between;
+        width: 5%;
+        color: #ffffff;
+
+        i {
+            margin-right: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.componentInformation {
+
+  .checkBox {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    label {
+      color: rgb(75, 65, 65);
+      font-size: 13px;
+      padding-top: 9px;
+      margin-left: 3px;
+    }
+
+    input {
+      transform: scale(1.5);
+    }
+  }
+
+  .custom-dropdown {
+    display: grid;
+  }
+}

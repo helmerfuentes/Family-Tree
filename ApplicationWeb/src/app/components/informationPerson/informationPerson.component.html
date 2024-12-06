@@ -1,0 +1,144 @@
+<div class="inf-basic-person">
+  <p-card header="Información de persona">
+    <fieldset class="p-fieldset">
+      <legend>Datos Básicos</legend>
+      <div class="field grid justify-content-between">
+        <!-- Primer grupo de campos (3 columnas por defecto) -->
+        <div class="col-5 flex">
+          <label for="fullName" class="justify-content-start">
+            Nombres Completo
+          </label>
+          <div >
+            <span>{{data?.fullNames}}</span>
+          </div>
+        </div>
+        
+        <div class="col flex">
+          <label for="identificacion" class="justify-content-end">
+            Identificación
+          </label>
+            <div >
+            <span>{{data?.identification}}</span>
+          </div>
+        </div>
+        
+        <div class="col flex">
+          <label for="genero" class="justify-content-end">
+            Género
+          </label>
+             <div class="ml-2">
+            <span>{{data?.gender == 1 ? 'Masculino': 'Femenino'}}</span>
+          </div>
+        </div>
+      </div>
+     <div class="field grid justify-content-between">
+      <div class="col flex">
+        <label for="fechaNacimiento" class="justify-content-end">
+          Fecha de Nacimiento
+        </label>
+             <div >
+          <span>{{data?.dateOfBirth | date:'fullDate'}}</span>
+        </div>
+      </div>
+
+      <div class="col flex">
+        <label for="description" class="justify-content-start">
+          Padre
+        </label>
+             <div >
+          <span>{{data?.father}}</span>
+        </div>
+      </div>
+      <div class="col flex">
+        <label for="description" class="justify-content-start">
+          Madre
+        </label>
+             <div >
+          <span>{{data?.mother}}</span>
+        </div>
+      </div>
+     </div>
+
+     <div class="field grid justify-content-between">
+       <div class="flex justify-content-between">
+         <!-- Label alineado a la izquierda -->
+         <label for="description" class="justify-content-end">
+           Descripción
+         </label>
+         <!-- Span alineado a la derecha -->
+           <div >
+           <span>{{data?.description}}</span>
+         </div>
+       </div>
+    </div>
+    </fieldset>
+    <br>
+    <fieldset class="p-fieldset">
+      <legend>Nacionalidad</legend>
+      <div class="field grid justify-content-between">
+        <div class="col flex">
+          <label for="description" class="justify-content-start">
+            Departamento
+          </label>
+               <div >
+            <span>---</span>
+          </div>
+        </div>
+        <div class="col flex">
+          <label for="description" class="justify-content-start">
+            Ciudad-Localidad
+          </label>
+               <div >
+            <span>{{data?.city}}</span>
+          </div>
+        </div>
+        <div class="col flex">
+          <label for="description" class="justify-content-start">
+            Corregimiento
+          </label>
+               <div >
+            <span>{{data?.village}}</span>
+          </div>
+        </div>
+       </div>
+    </fieldset>
+<br>
+    <fieldset class="p-fieldset">
+      <legend>Datos de fallecimeinto</legend>
+      <div class="field grid justify-content-between">
+        <div class="col flex">
+          <label for="description" class="justify-content-start">
+            Lugar
+          </label>
+             <div>
+            <span>{{data?.death?.city}}/{{data?.death?.village}}</span>
+          </div>
+        </div>
+        <div class="col flex">
+          <label for="description" class="justify-content-start">
+            Fecha
+          </label>
+             <div class="">
+            <span>{{data?.death?.dateOfDeath | date:'fullDate'}}</span>
+          </div>
+        </div>
+        <div class="col flex">
+          <label for="description" class="justify-content-start">
+            Causa 
+          </label>
+             <div class="ml-4">
+            <span>{{data?.death?.causeOfDeath}}</span>
+          </div>
+        </div>
+        <div class="col flex">
+          <label for="description" class="justify-content-start">
+            Informacion adicional
+          </label>
+               <div >
+            <span>{{data?.death?.informationAdditional}}</span>
+          </div>
+        </div>
+       </div>
+    </fieldset>
+  </p-card>
+</div>

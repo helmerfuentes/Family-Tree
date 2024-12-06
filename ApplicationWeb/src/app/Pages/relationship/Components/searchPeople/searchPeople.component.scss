@@ -1,0 +1,15 @@
+::ng-deep{
+    .search-people{
+        display: flex; /* Activa el modelo de diseño flexbox */
+        flex-direction: column; /* Coloca los elementos en una columna */
+        justify-content: center; /* Centra los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        gap: 1rem; /* Espaciado uniforme entre los elementos */
+        padding: 1rem; /* Espaciado interno */
+        .p-avatar.p-avatar-lg {
+            width: 6rem;
+            height: 6rem;
+            font-size: 4.5rem;
+        }
+    }
+}

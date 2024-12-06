@@ -1,0 +1,30 @@
+.user-instructions {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .user-instructions h2 {
+    color: #333;
+    text-align: center;
+  }
+  
+  .user-instructions p, 
+  .user-instructions ul {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .user-instructions ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  
+  .user-instructions ul li {
+    margin-bottom: 10px;
+  }
+  

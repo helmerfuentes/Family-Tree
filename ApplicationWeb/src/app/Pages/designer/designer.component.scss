@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.layout-wrapper {
+    height: 97vh;
+    flex-direction: column;
+    background-color: #f8fafc;
+    /* Fondo suave */
+    font-family: Arial, sans-serif;
+}
+
+/* Main container */
+.main-container {
+    flex: 1;
+    display: flex;
+    padding: 1rem;
+    background: #f1f6fc;
+    padding-top: 1px;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #ffffff;
+    flex-basis: 25%;
+    /* Define el ancho inicial del sidebar */
+    flex-grow: 0;
+    /* Evita que crezca más allá del 25% */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #555555;
+    transition: background-color 0.3s ease;
+    overflow: auto;
+}
+
+.sidebar:hover {
+    background-color: #f9fafb;
+}
+
+/* Content */
+.content {
+    background-color: #ffffff;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    color: #555555;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    overflow: auto;
+    height: 90vh;
+}
+
+.content:hover {
+    background-color: #f9fafb;
+    /* Cambio de color al pasar el cursor */
+}
+
+.graph-container {
+  width: 100%;
+  height: 87vh;
+//   border: 1px solid #6F42C1; /* Borde principal */
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px #6F42C1; /* Sombra externa */
+  overflow: hidden; /* Ocultar contenido que se desborde */
+  position: relative; /* Permite posicionamiento relativo de elementos internos */
+  transition: all 0.3s ease; /* Transición suave al hover */
+}
+
+.graph-container:hover {
+  box-shadow: 0 6px 15px #6F42C1; /* Sombra más pronunciada en hover */
+  transform: translateY(-2px); /* Efecto de elevación en hover */
+}
+
+::ng-deep {
+    .p-confirm-popup {
+        position: absolute;
+        margin-top: 10px;
+        top: 50%;
+        left: 50%;
+    }
+}

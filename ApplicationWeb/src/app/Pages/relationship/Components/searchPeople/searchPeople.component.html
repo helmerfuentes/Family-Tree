@@ -1,0 +1,13 @@
+<div class="search-people m-3">
+  <p-avatar [image]="getImg()" shape="circle" size="large"
+    [style]="{ 'background-color': getColor(), color: '#1a2551' }" />
+  @if (data) {
+  <span>{{data.fullNames}}</span>
+  <span>{{data.identification}}</span>
+  <span>{{getLabelGender(data.gender)}}</span>
+  <span>{{data.description}}</span>
+  } @else {
+  <span>Seleccione registro {{getTextDescribe()}}, Use</span>
+  <p-button disabled [icon]="getICon()" class="mr-1" [rounded]="true" [outlined]="true" [severity]="getSeverety()" />
+  }
+</div>

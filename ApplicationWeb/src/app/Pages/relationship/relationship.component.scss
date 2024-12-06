@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.layout-wrapper {
+    height: 97vh;
+    flex-direction: column;
+    background-color: #f8fafc;
+    /* Fondo suave */
+    font-family: Arial, sans-serif;
+}
+
+/* Main container */
+.main-container {
+    flex: 1;
+    display: flex;
+    padding: 1rem;
+    background: #f1f6fc;
+    padding-top: 1px;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #ffffff;
+    flex-basis: 25%;
+    /* Define el ancho inicial del sidebar */
+    flex-grow: 0;
+    /* Evita que crezca más allá del 25% */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #555555;
+    transition: background-color 0.3s ease;
+    overflow: auto;
+}
+
+.sidebar:hover {
+    background-color: #f9fafb;
+}
+
+/* Content */
+.content {
+    background-color: #ffffff;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    color: #555555;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    overflow: auto;
+    height: 90vh;
+}
+
+.content:hover {
+    background-color: #f9fafb;
+    /* Cambio de color al pasar el cursor */
+}
+
+::ng-deep {
+    .relationship-container {
+        .layout-wrapper {
+
+            .section-buttons {
+                width: 100%;
+            }
+
+            .table-section {
+                width: 98%;
+
+                p-table {
+
+                    width: 98%;
+                }
+
+                .link {
+                    color: #6F42C1; /* Color azul típico de los enlaces */
+                    cursor: pointer; /* Cambia el cursor al icono de mano */
+                    text-decoration: underline; /* Subrayado como un enlace */
+                  }
+                  
+                  .link:hover {
+                    color: #0056b3; /* Cambia el color al pasar el cursor */
+                  }
+            }
+
+            .p-button {
+                background-color: transparent;
+                // box-shadow: none;
+            }
+
+            .input-search {
+                input {
+                    width: 500px;
+                }
+            }
+        }
+       
+        .ng-tns-c1946505645-1.p-dialog-content.ng-star-inserted {
+            overflow: hidden;
+        }
+
+        .description-section{
+            display: block; /* Para que el <span> actúe como bloque y pueda tener un ancho */
+            width: 80%; /* Ajusta el valor según lo que necesites */
+            max-width: 600px; /* Establece un máximo para que el texto no se expanda demasiado */
+            margin: 0 auto; /* Centra el contenedor horizontalmente */
+            text-align: center; /* Centra el texto dentro del contenedor */
+        }
+    }
+}

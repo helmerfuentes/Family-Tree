@@ -1,0 +1,170 @@
+<div class="relationship-container">
+  <div class="layout-wrapper">
+    <div class="main-container">
+      <div class="sidebar p-col-12 p-md-3">
+        <app-searchPeople label="P" #searchPeopleP></app-searchPeople>
+      </div>
+
+      <div class="content">
+        <div class="card  flex">
+          <div class="grid section-buttons  flex justify-content-between">
+            <div class="col-5 mr-2">
+              <input
+                type="text"
+                pInputText
+                placeholder="Digite valor a buscar"
+                [(ngModel)]="filterValue"
+                required
+              />
+            </div>
+            <div class="col-3">
+              <p-autoComplete
+                placeholder="Seleccione el filtro"
+                [suggestions]="suggestionsFilter"
+                (completeMethod)="searchFilter($event)"
+                optionLabel="label"
+                optionValue="value"
+                [(ngModel)]="filterType"
+                [dropdown]="true"
+              />
+            </div>
+            <div class="col">
+              <p-button
+                label="Buscar"
+                [text]="true"
+                [outlined]="true"
+                (click)="searchPersonAsync()"
+              />
+              <p-button
+                label="Registrar persona"
+                [text]="true"
+                severity="help"
+                [outlined]="true"
+                (click)="openDialogRegisterPerson()"
+              />
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="card flex justify-content-center mt-6">
+          <div class="grid table-section">
+            <p-table
+              styleClass="p-datatable-striped"
+              [value]="peoples"
+              [paginator]="true"
+              [rows]="5"
+              [tableStyle]="{ 'min-width': '50rem' }"
+              [rowsPerPageOptions]="[5, 10, 20]"
+              paginatorDropdownAppendTo="body"
+            >
+              <ng-template pTemplate="header">
+                <tr>
+                  <th style="width: 25%">Nombre Completo</th>
+                  <th style="width: 10%">Identificación</th>
+                  <th style="width: 10%">Genero</th>
+                  <th style="width: 30%">Descripción</th>
+                  <th style="width: 20%">Acción</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-people>
+                <tr>
+                  <td>
+                    {{ people.fullNames }}
+                    <i
+                      class="pi pi-info-circle"
+                      pTooltip="Ver informacion completa"
+                      tooltipPosition="left"
+                      style="color: #6f42c1; cursor: pointer"
+                      (click)="showInformation(people)"
+                    ></i>
+                  </td>
+                  <td>{{ people.identification }}</td>
+                  <td>{{ getLabelGender(people.gender) }}</td>
+                  <ng-container
+                    *ngIf="
+                      people.description.length > 100;
+                      else fullDescription
+                    "
+                  >
+                    {{ people.description | slice : 0 : 100 }}...
+                    <span
+                      class="link"
+                      (click)="toggleDescription(people.description)"
+                      >Ver Descripción</span
+                    >
+                  </ng-container>
+                  <ng-template #fullDescription>
+                    {{ people.description }}
+                  </ng-template>
+                  <td>
+                    <p-button
+                      icon="pi pi-arrow-left"
+                      class="mr-1"
+                      pTooltip="Agregar como figura paternal"
+                      tooltipPosition="left"
+                      [rounded]="true"
+                      [outlined]="true"
+                      severity="success"
+                      size="small"
+                      (click)="selectedPerson(people, true)"
+                    />
+                    <p-button
+                      pTooltip="Agregar como figura maternal"
+                      tooltipPosition="left"
+                      class="mr-1"
+                      icon="pi pi-arrow-right"
+                      severity="info"
+                      [rounded]="true"
+                      size="small"
+                      [outlined]="true"
+                      (click)="selectedPerson(people, false)"
+                    />
+                    <p-button
+                      pTooltip="Agregar como hijo"
+                      tooltipPosition="left"
+                      icon="pi pi-arrow-right-arrow-left"
+                      severity="help"
+                      size="small"
+                      [rounded]="true"
+                      [outlined]="true"
+                      (onClick)="selectedAsChild(people, $event)"
+                    />
+                    <p-button
+                      pTooltip="Ir al diseñador"
+                      tooltipPosition="left"
+                      icon="pi pi-share-alt"
+                      severity="warning"
+                      size="small"
+                      (click)="goToDesigner(people)"
+                      [rounded]="true"
+                      [outlined]="true"
+                    />
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar p-col-12 p-md-3">
+        <app-searchPeople label="M" #searchPeopleM></app-searchPeople>
+      </div>
+    </div>
+    <p-confirmDialog />
+  </div>
+
+  <p-dialog [modal]="true" [(visible)]="visible">
+    @if (visible) { 
+      @if (openButtonDialogClick==1) {
+        <app-register (savedSucess)="visible = false"></app-register>
+      } @else if(openButtonDialogClick ==2) {
+      <span class="description-section">{{ descriontionFull }}</span>
+      }
+      @else {
+        <app-informationPerson [personId]="personClicked.key"></app-informationPerson>
+      }
+    }
+  </p-dialog>
+</div>

@@ -1,0 +1,17 @@
+.custom-card {
+    width: 800px; /* Puedes ajustar el ancho como necesites */
+    max-width: 90vw; /* Limita el ancho máximo al 90% del ancho de la ventana */
+  }
+
+  .my-content{
+    // display: flex;
+    // flex-direction: column;
+    // height: 0;
+    // display: flex;
+    // flex: 1 1 auto; 
+  }
+  
+  /* Opcional: Estilos para centrar el contenido dentro de la tarjeta */
+  .custom-card .p-card-header {
+    text-align: center;
+  }
