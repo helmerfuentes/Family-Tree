@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiUrl: 'https://api.example.com' 
+  apiUrl: 'http://familytree.some.com/api' 
 };
